@@ -1,25 +1,14 @@
-@using ShopApp.Models
 @model List<Product>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<div>
+    <h2>All Products</h2>
+</div>
+@foreach (Product product in Model)
+{
     <div>
-        <h2>All Products</h2>
+        <h4>@product.ProductName</h4>
+        <p>Price: @product.ProductPrice</p>
+        <p><a href="/Product/Get/@product.ProductId">See</a></p>
+        <hr>
     </div>
-    @foreach (Product product in Model)
-    {
-        <div>
-            <h4>@product.ProductName</h4>
-            <p>Price: @product.ProductPrice</p>
-            <p><a href="/Product/Get/@product.ProductId">See</a></p>
-            <hr>
-        </div>
-    }
-</body>
-</html>
+}
