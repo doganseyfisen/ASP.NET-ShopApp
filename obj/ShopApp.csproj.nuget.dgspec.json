@@ -4,14 +4,14 @@
     "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\ShopApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\ShopApp.csproj": {
+    "C:\\Users\\dogan\\MVC\\Shop\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\ShopApp.csproj",
-        "projectName": "ShopApp",
-        "projectPath": "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\ShopApp.csproj",
+        "projectUniqueName": "C:\\Users\\dogan\\MVC\\Shop\\Entities\\Entities.csproj",
+        "projectName": "Entities",
+        "projectPath": "C:\\Users\\dogan\\MVC\\Shop\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\obj\\",
+        "outputPath": "C:\\Users\\dogan\\MVC\\Shop\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dogan\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,18 +37,137 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dogan\\MVC\\Shop\\Repositories\\Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dogan\\MVC\\Shop\\Repositories\\Repositories.csproj",
+        "projectName": "Repositories",
+        "projectPath": "C:\\Users\\dogan\\MVC\\Shop\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dogan\\MVC\\Shop\\Repositories\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dogan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\dogan\\MVC\\Shop\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\dogan\\MVC\\Shop\\Entities\\Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.20, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.20, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\ShopApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\ShopApp.csproj",
+        "projectName": "ShopApp",
+        "projectPath": "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\ShopApp.csproj",
+        "packagesPath": "C:\\Users\\dogan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\dogan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\dogan\\MVC\\Shop\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\dogan\\MVC\\Shop\\Entities\\Entities.csproj"
+              },
+              "C:\\Users\\dogan\\MVC\\Shop\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\Users\\dogan\\MVC\\Shop\\Repositories\\Repositories.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.20, )"
-            },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[7.0.20, )"
             }

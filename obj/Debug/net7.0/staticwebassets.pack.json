@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\html\\ErrorPage.html"
     },
     {
+      "Id": "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\wwwroot\\images\\default.jpeg",
+      "PackagePath": "staticwebassets\\images\\default.jpeg"
+    },
+    {
       "Id": "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

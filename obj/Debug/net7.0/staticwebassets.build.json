@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "q7FMfdr7GUavp71u1Ev+Coj9K+QAI1bTm7FBw5nl/4U=",
+  "Hash": "Gp6azYvKhCntvFEqBafw1AiPTtRIHcdp5ntyDKcgh/E=",
   "Source": "ShopApp",
   "BasePath": "_content/ShopApp",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\html\\ErrorPage.html"
+    },
+    {
+      "Identity": "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\wwwroot\\images\\default.jpeg",
+      "SourceId": "ShopApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\wwwroot\\",
+      "BasePath": "_content/ShopApp",
+      "RelativePath": "images/default.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\default.jpeg"
     },
     {
       "Identity": "C:\\Users\\dogan\\MVC\\Shop\\ShopApp\\wwwroot\\js\\site.js",

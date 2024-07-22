@@ -4,7 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ShopApp.Models;
+using Repositories;
+using Entities.Models;
 
 namespace ShopApp.Controllers
 {
