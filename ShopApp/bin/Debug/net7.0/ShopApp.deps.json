@@ -10,7 +10,8 @@
         "dependencies": {
           "Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.20",
-          "Repositories": "1.0.0"
+          "Repositories": "1.0.0",
+          "Services": "1.0.0"
         },
         "runtime": {
           "ShopApp.dll": {}
@@ -350,6 +351,15 @@
         "runtime": {
           "Repositories.dll": {}
         }
+      },
+      "Services/1.0.0": {
+        "dependencies": {
+          "Entities": "1.0.0",
+          "Repositories": "1.0.0"
+        },
+        "runtime": {
+          "Services.dll": {}
+        }
       }
     }
   },
@@ -561,6 +571,11 @@
       "sha512": ""
     },
     "Repositories/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Repositories;
 using Entities.Models;
 using Repositories.Contracts;
+using Services.Contracts;
 
 namespace ShopApp.Controllers
 {
@@ -23,9 +24,9 @@ namespace ShopApp.Controllers
         // }
         // // end
 
-        private readonly IRepositoryManager _manager;
+        private readonly IServiceManager _manager;
 
-        public ProductController(IRepositoryManager manager)
+        public ProductController(IServiceManager manager)
         {
             _manager = manager;
         }
@@ -40,17 +41,17 @@ namespace ShopApp.Controllers
             );
             */
 
-            var products = _manager.Product.GetAllProducts(false);
+            var products = _manager.ProductService.GetAllProducts(false);
 
             return View(products);
         }
 
-        public IActionResult Get(int id)
+        public IActionResult Get([FromRoute(Name="id")] int id)
         {
             // Product product = _context.Products.First(p => p.ProductId.Equals(id));
 
             // return View(product);
-            var product = _manager.Product.GetSelectedProduct(id, false) ?? throw new Exception("Product not found.");
+            var product = _manager.ProductService.GetSelectedProduct(id, false) ?? throw new Exception("Product not found.");
             
             return View(product);
         }
