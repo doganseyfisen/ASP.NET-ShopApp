@@ -6,20 +6,29 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
 using Entities.Models;
+using Repositories.Contracts;
 
 namespace ShopApp.Controllers
 {
     public class ProductController : Controller
     {
-        // Dependency Injection (DI) - start
-        // Let's say I need RepositoryContext, so service handle this for me.
-        private readonly RepositoryContext _context;
+        
+        // // Dependency Injection (DI) - start
+        // // Let's say I need RepositoryContext, so service handle this for me.
+        // private readonly RepositoryContext _context;
 
-        public ProductController(RepositoryContext context)
+        // public ProductController(RepositoryContext context)
+        // {
+        //     _context = context;
+        // }
+        // // end
+
+        private readonly IRepositoryManager _manager;
+
+        public ProductController(IRepositoryManager manager)
         {
-            _context = context;
+            _manager = manager;
         }
-        // end
 
         public IActionResult Index()
         {
@@ -31,16 +40,18 @@ namespace ShopApp.Controllers
             );
             */
 
-            var products = _context.Products.ToList();
+            var products = _manager.Product.GetAllProducts(false);
 
             return View(products);
         }
 
         public IActionResult Get(int id)
         {
-            Product product = _context.Products.First(p => p.ProductId.Equals(id));
+            // Product product = _context.Products.First(p => p.ProductId.Equals(id));
 
-            return View(product);
+            // return View(product);
+
+            throw new NotImplementedException();
         }
     }
 }
