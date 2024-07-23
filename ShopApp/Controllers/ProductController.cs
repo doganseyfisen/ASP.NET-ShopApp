@@ -51,6 +51,7 @@ namespace ShopApp.Controllers
 
             // return View(product);
             var model = _manager.Product.GetSelectedProduct(id, false);
+            
             return View(model);
         }
     }

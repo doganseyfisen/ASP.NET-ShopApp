@@ -12,13 +12,19 @@ namespace Repositories
 
         private readonly IProductRepository _productRepository;
 
-        public RepositoryManager(IProductRepository productRepository, RepositoryContext context)
+        private readonly ICategoryRepository _categoryRepository;
+
+        public RepositoryManager(IProductRepository productRepository, RepositoryContext context, ICategoryRepository categoryRepository)
         {
+            // They are added to Program.cs file
             _context = context;
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
         }
 
         public IProductRepository Product => _productRepository;
+
+        public ICategoryRepository Category => _categoryRepository;
 
         public void Save()
         {

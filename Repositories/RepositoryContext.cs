@@ -5,6 +5,7 @@ namespace Repositories;
 public class RepositoryContext : DbContext
 {
     public DbSet<Product> Products { get; set; }
+    public DbSet<Category> Categories { get; set; }
     public RepositoryContext(DbContextOptions<RepositoryContext> options) : base(options)
     {
 
@@ -19,6 +20,11 @@ public class RepositoryContext : DbContext
             new Product() { ProductId = 3, ProductName = "Celeste", ProductPrice = 10.49m },
             new Product() { ProductId = 4, ProductName = "Paper, Please", ProductPrice = 9.99m },
             new Product() { ProductId = 5, ProductName = "Don't Starve", ProductPrice = 3.29m }
+        );
+        modelBuilder.Entity<Category>().HasData(
+            new Category() { CategoryId = 1, CategoryName = "Video Games" },
+            new Category() { CategoryId = 2, CategoryName = "Book" },
+            new Category() { CategoryId = 3, CategoryName = "Stationery" }
         );
     }
 }
