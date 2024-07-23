@@ -50,9 +50,9 @@ namespace ShopApp.Controllers
             // Product product = _context.Products.First(p => p.ProductId.Equals(id));
 
             // return View(product);
-            var model = _manager.Product.GetSelectedProduct(id, false);
+            var product = _manager.Product.GetSelectedProduct(id, false) ?? throw new Exception("Product not found.");
             
-            return View(model);
+            return View(product);
         }
     }
 }
