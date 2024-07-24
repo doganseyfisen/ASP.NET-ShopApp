@@ -13,6 +13,8 @@ namespace ShopApp.Infrastructure.Mapper
         public MappingProfile()
         {
             CreateMap<ProductDtoForInsertion, Product>();
+            // When it comes to update, this source-target relation becomes also t-s
+            CreateMap<ProductDtoForUpdate, Product>().ReverseMap();
         }
     }
 }

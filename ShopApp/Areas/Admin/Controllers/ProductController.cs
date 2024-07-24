@@ -35,6 +35,11 @@ namespace ShopApp.Areas.Admin.Controllers
             return View();
         }
 
+        private SelectList GetCategoriesSelectList()
+        {
+            return new SelectList(_manager.CategoryService.GetAllCategories(false), "CategoryId", "CategoryName", "1");
+        }
+
         [Area("Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -53,7 +58,8 @@ namespace ShopApp.Areas.Admin.Controllers
         [Area("Admin")]
         public IActionResult Update([FromRoute(Name = "id")] int id)
         {
-            var model = _manager.ProductService.GetSelectedProduct(id, false);
+            ViewBag.Categories = GetCategoriesSelectList();
+            var model = _manager.ProductService.GetSelectedProductForUpdate(id, false);
 
             return View(model);
         }
@@ -61,7 +67,7 @@ namespace ShopApp.Areas.Admin.Controllers
         [Area("Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(Product product)
+        public IActionResult Update([FromForm] ProductDtoForUpdate product)
         {
             if (ModelState.IsValid)
             {

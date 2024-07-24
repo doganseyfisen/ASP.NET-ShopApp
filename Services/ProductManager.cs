@@ -25,7 +25,7 @@ namespace Services
         // end
 
         public void CreateNewProduct(ProductDtoForInsertion productDto)
-        {   
+        {
             Product product = _mapper.Map<Product>(productDto);
             _manager.Product.Create(product);
             _manager.Save();
@@ -53,11 +53,23 @@ namespace Services
             return product;
         }
 
-        public void UpdateSelectedProduct(Product product)
+        public ProductDtoForUpdate GetSelectedProductForUpdate(int id, bool trackChanges)
         {
-            var model = _manager.Product.GetSelectedProduct(product.ProductId, true);
-            model.ProductName = product.ProductName;
-            model.ProductPrice = product.ProductPrice;
+            var product = GetSelectedProduct(id, trackChanges);
+            var productDto = _mapper.Map<ProductDtoForUpdate>(product);
+
+            return productDto;
+        }
+
+        public void UpdateSelectedProduct(ProductDtoForUpdate productDto)
+        {
+            // var model = _manager.Product.GetSelectedProduct(productDto.ProductId, true);
+            // model.ProductName = productDto.ProductName;
+            // model.ProductPrice = productDto.ProductPrice;
+            // model.CategoryId = productDto.CategoryId;
+
+            var model = _mapper.Map<Product>(productDto);
+            _manager.Product.UpdateSelectedProduct(model);
             _manager.Save();
         }
     }
