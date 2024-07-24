@@ -7,7 +7,7 @@
 namespace ShopApp.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class start : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,6 +33,8 @@ namespace ShopApp.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     ProductName = table.Column<string>(type: "TEXT", nullable: false),
                     ProductPrice = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ProductDescription = table.Column<string>(type: "TEXT", nullable: false),
+                    ProductImageUrl = table.Column<string>(type: "TEXT", nullable: false),
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -57,16 +59,16 @@ namespace ShopApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "CategoryId", "ProductName", "ProductPrice" },
+                columns: new[] { "ProductId", "CategoryId", "ProductDescription", "ProductImageUrl", "ProductName", "ProductPrice" },
                 values: new object[,]
                 {
-                    { 1, 1, "GTA V", 14.98m },
-                    { 2, 1, "The Witcher 3", 29.99m },
-                    { 3, 1, "Celeste", 10.49m },
-                    { 4, 1, "Paper, Please", 9.99m },
-                    { 5, 1, "Don't Starve", 3.29m },
-                    { 6, 2, "The Brothers Karamozov", 19.95m },
-                    { 7, 3, "Lamy Fountain Pen", 25.35m }
+                    { 1, 1, "", "/images/1.jpeg", "GTA V", 14.98m },
+                    { 2, 1, "", "/images/2.jpeg", "The Witcher 3", 29.99m },
+                    { 3, 1, "", "/images/3.jpeg", "Celeste", 10.49m },
+                    { 4, 1, "", "/images/4.jpeg", "Paper, Please", 9.99m },
+                    { 5, 1, "", "/images/5.jpeg", "Don't Starve", 3.29m },
+                    { 6, 2, "", "/images/6.jpeg", "The Brothers Karamazov", 19.95m },
+                    { 7, 3, "", "/images/7.jpeg", "Lamy Fountain Pen", 25.35m }
                 });
 
             migrationBuilder.CreateIndex(

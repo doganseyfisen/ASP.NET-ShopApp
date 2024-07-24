@@ -11,8 +11,8 @@ using Repositories;
 namespace ShopApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20240724174932_init")]
-    partial class init
+    [Migration("20240724214333_start")]
+    partial class start
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,6 +61,14 @@ namespace ShopApp.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("ProductDescription")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ProductImageUrl")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("ProductName")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -79,6 +87,8 @@ namespace ShopApp.Migrations
                         {
                             ProductId = 1,
                             CategoryId = 1,
+                            ProductDescription = "",
+                            ProductImageUrl = "/images/1.jpeg",
                             ProductName = "GTA V",
                             ProductPrice = 14.98m
                         },
@@ -86,6 +96,8 @@ namespace ShopApp.Migrations
                         {
                             ProductId = 2,
                             CategoryId = 1,
+                            ProductDescription = "",
+                            ProductImageUrl = "/images/2.jpeg",
                             ProductName = "The Witcher 3",
                             ProductPrice = 29.99m
                         },
@@ -93,6 +105,8 @@ namespace ShopApp.Migrations
                         {
                             ProductId = 3,
                             CategoryId = 1,
+                            ProductDescription = "",
+                            ProductImageUrl = "/images/3.jpeg",
                             ProductName = "Celeste",
                             ProductPrice = 10.49m
                         },
@@ -100,6 +114,8 @@ namespace ShopApp.Migrations
                         {
                             ProductId = 4,
                             CategoryId = 1,
+                            ProductDescription = "",
+                            ProductImageUrl = "/images/4.jpeg",
                             ProductName = "Paper, Please",
                             ProductPrice = 9.99m
                         },
@@ -107,6 +123,8 @@ namespace ShopApp.Migrations
                         {
                             ProductId = 5,
                             CategoryId = 1,
+                            ProductDescription = "",
+                            ProductImageUrl = "/images/5.jpeg",
                             ProductName = "Don't Starve",
                             ProductPrice = 3.29m
                         },
@@ -114,13 +132,17 @@ namespace ShopApp.Migrations
                         {
                             ProductId = 6,
                             CategoryId = 2,
-                            ProductName = "The Brothers Karamozov",
+                            ProductDescription = "",
+                            ProductImageUrl = "/images/6.jpeg",
+                            ProductName = "The Brothers Karamazov",
                             ProductPrice = 19.95m
                         },
                         new
                         {
                             ProductId = 7,
                             CategoryId = 3,
+                            ProductDescription = "",
+                            ProductImageUrl = "/images/7.jpeg",
                             ProductName = "Lamy Fountain Pen",
                             ProductPrice = 25.35m
                         });
