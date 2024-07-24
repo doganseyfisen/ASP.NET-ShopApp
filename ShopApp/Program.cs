@@ -26,9 +26,14 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
+app.MapAreaControllerRoute(
+    name: "Admin",
+    areaName: "Admin",
+    pattern: "Admin/{controller=Dashboard}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
-    "default",
-    "{controller=Home}/{action=Index}/{id?}"
-    );
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();
