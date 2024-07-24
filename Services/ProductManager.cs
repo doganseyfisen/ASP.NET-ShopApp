@@ -25,6 +25,16 @@ namespace Services
             _manager.Save();
         }
 
+        public void DeleteSelectedProduct(int id)
+        {
+            Product product = GetSelectedProduct(id, false);
+            if (product is not null)
+            {
+                _manager.Product.DeleteSelectedProduct(product);
+                _manager.Save();
+            }
+        }
+
         public IEnumerable<Product> GetAllProducts(bool trackChanges)
         {
             return _manager.Product.GetAllProducts(trackChanges);
@@ -35,6 +45,14 @@ namespace Services
             var product = _manager.Product.GetSelectedProduct(id, trackChanges) ?? throw new Exception("Product not found.");
 
             return product;
+        }
+
+        public void UpdateSelectedProduct(Product product)
+        {
+            var model = _manager.Product.GetSelectedProduct(product.ProductId, true);
+            model.ProductName = product.ProductName;
+            model.ProductPrice = product.ProductPrice;
+            _manager.Save();
         }
     }
 }

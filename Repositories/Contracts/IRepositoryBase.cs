@@ -14,5 +14,9 @@ namespace Repositories.Contracts
 
         // Add new product
         void Create(Type entity);
+        // Update existing product
+        void Update(Type entity);
+        // Delete
+        void Remove(Type entity);
     }
 }

@@ -16,6 +16,10 @@ namespace Repositories
 
         public void CreateNewProduct(Product product) => Create(product); // RepositoryBase
 
+        public void UpdateSelectedProduct(Product entity) => Update(entity);
+
+        public void DeleteSelectedProduct(Product product) => Remove(product);
+
         public IQueryable<Product> GetAllProducts(bool trackChanges) => FindAll(trackChanges);
 
         public Product? GetSelectedProduct(int id, bool trackChanges)

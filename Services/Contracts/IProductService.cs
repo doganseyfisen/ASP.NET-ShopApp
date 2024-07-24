@@ -11,5 +11,7 @@ namespace Services.Contracts
         IEnumerable<Product> GetAllProducts(bool trackChanges);
         Product? GetSelectedProduct(int id, bool trackChanges);
         void CreateNewProduct(Product product);
+        void UpdateSelectedProduct(Product product);
+        void DeleteSelectedProduct(int id);
     }
 }

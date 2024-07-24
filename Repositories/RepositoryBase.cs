@@ -23,6 +23,16 @@ namespace Repositories
             _context.Set<Type>().Add(entity);
         }
 
+        public void Update(Type entity)
+        {
+            _context.Set<Type>().Update(entity);
+        }
+
+        public void Remove(Type entity)
+        {
+            _context.Set<Type>().Remove(entity);
+        }
+
         public IQueryable<Type> FindAll(bool trackChanges)
         {
             return trackChanges ? _context.Set<Type>() : _context.Set<Type>().AsNoTracking();

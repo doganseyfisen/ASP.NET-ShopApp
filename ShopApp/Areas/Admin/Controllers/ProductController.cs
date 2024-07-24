@@ -31,17 +31,48 @@ namespace ShopApp.Areas.Admin.Controllers
             return View();
         }
 
+        [Area("Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create([FromForm] Product product)
         {
             if (ModelState.IsValid)
             {
-                _manager.ProductService.CreateNewProduct(product);    
+                _manager.ProductService.CreateNewProduct(product);
                 return RedirectToAction("Index");
             }
 
             return View();
+        }
+
+        [Area("Admin")]
+        public IActionResult Update([FromRoute(Name = "id")] int id)
+        {
+            var model = _manager.ProductService.GetSelectedProduct(id, false);
+
+            return View(model);
+        }
+
+        [Area("Admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                _manager.ProductService.UpdateSelectedProduct(product);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
+
+        [Area("Admin")]
+        public IActionResult Delete([FromRoute(Name = "id")] int id)
+        {
+            _manager.ProductService.DeleteSelectedProduct(id);
+
+            return RedirectToAction("Index");
         }
     }
 }
