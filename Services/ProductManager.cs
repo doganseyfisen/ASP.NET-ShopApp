@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Entities.Dtos;
 using Entities.Models;
 using Repositories.Contracts;
@@ -14,21 +15,18 @@ namespace Services
         // Dependency Injection (DI)
         private readonly IRepositoryManager _manager;
 
-        public ProductManager(IRepositoryManager manager)
+        private readonly IMapper _mapper;
+
+        public ProductManager(IRepositoryManager manager, IMapper mapper)
         {
+            _mapper = mapper;
             _manager = manager;
         }
         // end
 
         public void CreateNewProduct(ProductDtoForInsertion productDto)
         {   
-            Product product = new()
-            {
-                ProductName = productDto.ProductName,
-                ProductPrice = productDto.ProductPrice,
-                CategoryId = productDto.CategoryId
-            };
-
+            Product product = _mapper.Map<Product>(productDto);
             _manager.Product.Create(product);
             _manager.Save();
         }
