@@ -1,5 +1,7 @@
-﻿using Entities.Models;
+﻿using System.Reflection;
+using Entities.Models;
 using Microsoft.EntityFrameworkCore;
+using Repositories.Config;
 
 namespace Repositories;
 public class RepositoryContext : DbContext
@@ -14,17 +16,10 @@ public class RepositoryContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Product>().HasData(
-            new Product() { ProductId = 1, ProductName = "GTA V", ProductPrice = 14.98m },
-            new Product() { ProductId = 2, ProductName = "The Witcher 3", ProductPrice = 29.99m },
-            new Product() { ProductId = 3, ProductName = "Celeste", ProductPrice = 10.49m },
-            new Product() { ProductId = 4, ProductName = "Paper, Please", ProductPrice = 9.99m },
-            new Product() { ProductId = 5, ProductName = "Don't Starve", ProductPrice = 3.29m }
-        );
-        modelBuilder.Entity<Category>().HasData(
-            new Category() { CategoryId = 1, CategoryName = "Video Games" },
-            new Category() { CategoryId = 2, CategoryName = "Book" },
-            new Category() { CategoryId = 3, CategoryName = "Stationery" }
-        );
+        /*
+        modelBuilder.ApplyConfiguration(new ProductConfig());
+        modelBuilder.ApplyConfiguration(new CategoryConfig());
+        */
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 }
