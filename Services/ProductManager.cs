@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entities.Dtos;
 using Entities.Models;
 using Repositories.Contracts;
 using Services.Contracts;
@@ -19,8 +20,15 @@ namespace Services
         }
         // end
 
-        public void CreateNewProduct(Product product)
-        {
+        public void CreateNewProduct(ProductDtoForInsertion productDto)
+        {   
+            Product product = new()
+            {
+                ProductName = productDto.ProductName,
+                ProductPrice = productDto.ProductPrice,
+                CategoryId = productDto.CategoryId
+            };
+
             _manager.Product.Create(product);
             _manager.Save();
         }

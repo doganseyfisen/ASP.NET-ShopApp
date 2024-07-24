@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities.Models;
+using Entities.Dtos;
 
 namespace Services.Contracts
 {
@@ -10,7 +11,7 @@ namespace Services.Contracts
     {
         IEnumerable<Product> GetAllProducts(bool trackChanges);
         Product? GetSelectedProduct(int id, bool trackChanges);
-        void CreateNewProduct(Product product);
+        void CreateNewProduct(ProductDtoForInsertion productDto);
         void UpdateSelectedProduct(Product product);
         void DeleteSelectedProduct(int id);
     }

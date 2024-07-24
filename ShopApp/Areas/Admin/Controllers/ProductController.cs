@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entities.Dtos;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Services.Contracts;
 
 namespace ShopApp.Areas.Admin.Controllers
@@ -28,17 +30,20 @@ namespace ShopApp.Areas.Admin.Controllers
         [Area("Admin")]
         public IActionResult Create()
         {
+            ViewBag.Categories = new SelectList(_manager.CategoryService.GetAllCategories(false), "CategoryId", "CategoryName", "1");
+
             return View();
         }
 
         [Area("Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([FromForm] Product product)
+        public IActionResult Create([FromForm] ProductDtoForInsertion productDto)
         {
             if (ModelState.IsValid)
             {
-                _manager.ProductService.CreateNewProduct(product);
+                _manager.ProductService.CreateNewProduct(productDto);
+
                 return RedirectToAction("Index");
             }
 
@@ -61,6 +66,7 @@ namespace ShopApp.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 _manager.ProductService.UpdateSelectedProduct(product);
+
                 return RedirectToAction("Index");
             }
 

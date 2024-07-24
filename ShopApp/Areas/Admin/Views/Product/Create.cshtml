@@ -1,4 +1,4 @@
-@model Product
+@model ProductDtoForInsertion
 
 <div class="text-center">
     <div class="display-6">Create</div>
@@ -19,6 +19,12 @@
     </div>
 
     <div class="form-group my-3">
+        <label asp-for="CategoryId">Category</label>
+        <select class="form-control" asp-items="@ViewBag.Categories" asp-for="CategoryId"></select>
+    </div>
+
+    <div class="form-group my-3">
+    using Entities.Dtos;
         <button class="btn rounded-pill text-light" style="background-color:#008000;" type="submit">Save</button>
         <a class="btn rounded-pill text-light" style="background-color:	rgb(255, 126, 29);" asp-controller="Product"
             asp-action="Index">Products</a>
