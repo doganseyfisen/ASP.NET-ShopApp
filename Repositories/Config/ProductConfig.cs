@@ -17,13 +17,13 @@ namespace Repositories.Config
             builder.Property(product => product.ProductPrice).IsRequired();
 
             builder.HasData(
-                new Product() { ProductId = 1, CategoryId = 1, ProductName = "GTA V", ProductPrice = 14.98m },
-                new Product() { ProductId = 2, CategoryId = 1, ProductName = "The Witcher 3", ProductPrice = 29.99m },
-                new Product() { ProductId = 3, CategoryId = 1, ProductName = "Celeste", ProductPrice = 10.49m },
-                new Product() { ProductId = 4, CategoryId = 1, ProductName = "Paper, Please", ProductPrice = 9.99m },
-                new Product() { ProductId = 5, CategoryId = 1, ProductName = "Don't Starve", ProductPrice = 3.29m },
-                new Product() { ProductId = 6, CategoryId = 2, ProductName = "The Brothers Karamozov", ProductPrice = 19.95m },
-                new Product() { ProductId = 7, CategoryId = 3, ProductName = "Lamy Fountain Pen", ProductPrice = 25.35m }
+                new Product() { ProductId = 1, CategoryId = 1, ProductImageUrl = "/images/1.jpeg", ProductName = "GTA V", ProductPrice = 14.98m },
+                new Product() { ProductId = 2, CategoryId = 1, ProductImageUrl = "/images/2.jpeg", ProductName = "The Witcher 3", ProductPrice = 29.99m },
+                new Product() { ProductId = 3, CategoryId = 1, ProductImageUrl = "/images/3.jpeg", ProductName = "Celeste", ProductPrice = 10.49m },
+                new Product() { ProductId = 4, CategoryId = 1, ProductImageUrl = "/images/4.jpeg", ProductName = "Paper, Please", ProductPrice = 9.99m },
+                new Product() { ProductId = 5, CategoryId = 1, ProductImageUrl = "/images/5.jpeg", ProductName = "Don't Starve", ProductPrice = 3.29m },
+                new Product() { ProductId = 6, CategoryId = 2, ProductImageUrl = "/images/6.jpeg", ProductName = "The Brothers Karamazov", ProductPrice = 19.95m },
+                new Product() { ProductId = 7, CategoryId = 3, ProductImageUrl = "/images/7.jpeg", ProductName = "Lamy Fountain Pen", ProductPrice = 25.35m }
             );
         }
     }
