@@ -66,6 +66,7 @@ namespace ShopApp.Areas.Admin.Controllers
         [Area("Admin")]
         public IActionResult Update([FromRoute(Name = "id")] int id)
         {
+
             ViewBag.Categories = GetCategoriesSelectList();
             var model = _manager.ProductService.GetSelectedProductForUpdate(id, false);
 
@@ -75,11 +76,19 @@ namespace ShopApp.Areas.Admin.Controllers
         [Area("Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update([FromForm] ProductDtoForUpdate product)
+        public async Task<IActionResult> Update([FromForm] ProductDtoForUpdate productDto, IFormFile file)
         {
             if (ModelState.IsValid)
             {
-                _manager.ProductService.UpdateSelectedProduct(product);
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", file.FileName);
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+
+                productDto.ProductImageUrl = String.Concat("/images/", file.FileName);
+                _manager.ProductService.UpdateSelectedProduct(productDto);
 
                 return RedirectToAction("Index");
             }

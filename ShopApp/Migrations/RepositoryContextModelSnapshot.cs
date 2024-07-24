@@ -63,7 +63,6 @@ namespace ShopApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProductImageUrl")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProductName")
@@ -85,7 +84,7 @@ namespace ShopApp.Migrations
                             ProductId = 1,
                             CategoryId = 1,
                             ProductDescription = "",
-                            ProductImageUrl = "/images/1.jpeg",
+                            ProductImageUrl = "/images/1.jpg",
                             ProductName = "GTA V",
                             ProductPrice = 14.98m
                         },
@@ -94,7 +93,7 @@ namespace ShopApp.Migrations
                             ProductId = 2,
                             CategoryId = 1,
                             ProductDescription = "",
-                            ProductImageUrl = "/images/2.jpeg",
+                            ProductImageUrl = "/images/2.jpg",
                             ProductName = "The Witcher 3",
                             ProductPrice = 29.99m
                         },
@@ -103,7 +102,7 @@ namespace ShopApp.Migrations
                             ProductId = 3,
                             CategoryId = 1,
                             ProductDescription = "",
-                            ProductImageUrl = "/images/3.jpeg",
+                            ProductImageUrl = "/images/3.jpg",
                             ProductName = "Celeste",
                             ProductPrice = 10.49m
                         },
@@ -112,7 +111,7 @@ namespace ShopApp.Migrations
                             ProductId = 4,
                             CategoryId = 1,
                             ProductDescription = "",
-                            ProductImageUrl = "/images/4.jpeg",
+                            ProductImageUrl = "/images/4.jpg",
                             ProductName = "Paper, Please",
                             ProductPrice = 9.99m
                         },
@@ -121,7 +120,7 @@ namespace ShopApp.Migrations
                             ProductId = 5,
                             CategoryId = 1,
                             ProductDescription = "",
-                            ProductImageUrl = "/images/5.jpeg",
+                            ProductImageUrl = "/images/5.jpg",
                             ProductName = "Don't Starve",
                             ProductPrice = 3.29m
                         },
@@ -130,7 +129,7 @@ namespace ShopApp.Migrations
                             ProductId = 6,
                             CategoryId = 2,
                             ProductDescription = "",
-                            ProductImageUrl = "/images/6.jpeg",
+                            ProductImageUrl = "/images/6.jpg",
                             ProductName = "The Brothers Karamazov",
                             ProductPrice = 19.95m
                         },
@@ -139,7 +138,7 @@ namespace ShopApp.Migrations
                             ProductId = 7,
                             CategoryId = 3,
                             ProductDescription = "",
-                            ProductImageUrl = "/images/7.jpeg",
+                            ProductImageUrl = "/images/7.jpg",
                             ProductName = "Lamy Fountain Pen",
                             ProductPrice = 25.35m
                         });
