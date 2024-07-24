@@ -18,6 +18,11 @@ namespace Repositories
             _context = context;
         }
 
+        public void Create(Type entity)
+        {
+            _context.Set<Type>().Add(entity);
+        }
+
         public IQueryable<Type> FindAll(bool trackChanges)
         {
             return trackChanges ? _context.Set<Type>() : _context.Set<Type>().AsNoTracking();
