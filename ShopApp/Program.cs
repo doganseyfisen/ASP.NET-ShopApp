@@ -5,6 +5,7 @@ using Repositories.Contracts;
 using Services;
 using Services.Contracts;
 using ShopApp.Infrastructure.Mapper;
+using ShopApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +22,7 @@ builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
-builder.Services.AddScoped<Cart>();
+builder.Services.AddScoped<Cart>(cart => SessionCart.GetCart(cart));
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options => 
 {

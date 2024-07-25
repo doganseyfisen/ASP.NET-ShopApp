@@ -16,9 +16,10 @@ namespace ShopApp.Pages
         
         public Cart Cart { get; set; }
 
-        public CartModel(IServiceManager manager)
+        public CartModel(IServiceManager manager, Cart cartService)
         {
             _manager = manager;
+            Cart = cartService;
         }
 
         public string ReturnUrl { get; set; } = "/";
@@ -26,7 +27,7 @@ namespace ShopApp.Pages
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+            // Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
         }
 
         public IActionResult OnPost(int productId, string returnUrl)
@@ -36,11 +37,11 @@ namespace ShopApp.Pages
             if (product is not null)
             {
                 // Check Cart object from Session, if it's not existing create new
-                Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+                // Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
                 // Add item to product
                 Cart.AddItemToCartLine(product, 1);
                 // Then write info to a Session
-                HttpContext.Session.SetJson<Cart>("cart", Cart);
+                // HttpContext.Session.SetJson<Cart>("cart", Cart);
             }
 
             return Page();
@@ -48,9 +49,9 @@ namespace ShopApp.Pages
 
         public IActionResult OnPostRemove(int id, string returnUrl)
         {
-            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+            // Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
             Cart.RemoveCartLine(Cart.Lines.First(cl => cl.Product.ProductId.Equals(id)).Product);
-            HttpContext.Session.SetJson<Cart>("cart", Cart);
+            // HttpContext.Session.SetJson<Cart>("cart", Cart);
 
             return Page();
         }
