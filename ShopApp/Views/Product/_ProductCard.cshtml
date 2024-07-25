@@ -6,8 +6,21 @@
         <div class="card-body">
             <h5 class="card-title">@Model.ProductName</h5>
             <p class="card-text">$@Model.ProductPrice USD</p>
-            <a class="btn rounded-pill text-light" style="background-color:	rgb(0, 97, 239);" asp-action="Get"
-                asp-route-id="@Model.ProductId">See details</a>
+            <p class="card-text">@Model.ProductDescription</p>
+
+            <div class="btn btn-group">
+                <a class="btn rounded-pill text-light" style="background-color:	rgb(0, 97, 239);" asp-action="Get"
+                    asp-route-id="@Model.ProductId">See details</a>
+
+                <form id="@Model.ProductId" asp-page="/cart" method="post">
+                    <input type="hidden" asp-for="ProductId" />
+                    <input type="hidden" name="returnUrl" value="/Product/Get/@Model.ProductId" />
+                    <button type="submit" class="btn btn-success text-light rounded-pill text-light">
+                        Add to cart
+                    </button>
+                </form>
+
+            </div>
         </div>
     </div>
 </div>
