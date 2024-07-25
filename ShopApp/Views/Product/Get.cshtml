@@ -1,5 +1,17 @@
 @model Product
 
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-center">
+            <h6 class="display-6">
+                @Model.ProductName
+            </h6>
+
+            <img class="img-fluid my-3" width="200" src="@Model?.ProductImageUrl">
+        </div>
+    </div>
+</div>
+
 <div class="my-3">
     <h4>@Model.ProductName</h4>
     <p>Price: $@Model.ProductPrice USD</p>
