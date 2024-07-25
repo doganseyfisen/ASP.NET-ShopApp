@@ -1,9 +1,5 @@
 using Entities.Models;
-using Microsoft.EntityFrameworkCore;
-using Repositories;
-using Repositories.Contracts;
-using Services;
-using Services.Contracts;
+using ShopApp.Infrastructure.Extensions;
 using ShopApp.Infrastructure.Mapper;
 using ShopApp.Models;
 
@@ -11,30 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<RepositoryContext>(options =>
-{
-    options.UseSqlite(
-        builder.Configuration.GetConnectionString("sqlconnection"),
-        a => a.MigrationsAssembly("ShopApp")
-    );
-});
-builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-builder.Services.AddScoped<IServiceManager, ServiceManager>();
-builder.Services.AddScoped<IProductService, ProductManager>();
-builder.Services.AddScoped<ICategoryService, CategoryManager>();
-builder.Services.AddScoped<IOrderService, OrderManager>();
+builder.Services.ConfigureDbContext(builder.Configuration);
+builder.Services.ConfigureRepositoryRegistration();
+builder.Services.ConfigureServiceRegistration();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<Cart>(cart => SessionCart.GetCart(cart));
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession(options =>
-{
-    options.Cookie.Name = "ShopApp.Session";
-    options.IdleTimeout = TimeSpan.FromMinutes(10);
-});
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.ConfigureSession();
 
 var app = builder.Build();
 
@@ -61,5 +39,7 @@ app.UseEndpoints(endpoints =>
 
     endpoints.MapRazorPages();
 });
+
+app.ConfigureAndCheckMigration();
 
 app.Run();

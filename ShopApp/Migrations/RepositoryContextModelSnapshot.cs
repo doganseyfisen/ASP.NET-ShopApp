@@ -83,11 +83,13 @@ namespace ShopApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Line1")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Line1")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
-                    b.Property<int>("Line2")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Line2")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -127,6 +129,9 @@ namespace ShopApp.Migrations
                     b.Property<decimal>("ProductPrice")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("ShowCase")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("ProductId");
 
                     b.HasIndex("CategoryId");
@@ -141,7 +146,8 @@ namespace ShopApp.Migrations
                             ProductDescription = "",
                             ProductImageUrl = "/images/1.jpg",
                             ProductName = "GTA V",
-                            ProductPrice = 14.98m
+                            ProductPrice = 14.98m,
+                            ShowCase = false
                         },
                         new
                         {
@@ -150,7 +156,8 @@ namespace ShopApp.Migrations
                             ProductDescription = "",
                             ProductImageUrl = "/images/2.jpg",
                             ProductName = "The Witcher 3",
-                            ProductPrice = 29.99m
+                            ProductPrice = 29.99m,
+                            ShowCase = false
                         },
                         new
                         {
@@ -159,7 +166,8 @@ namespace ShopApp.Migrations
                             ProductDescription = "",
                             ProductImageUrl = "/images/3.jpg",
                             ProductName = "Celeste",
-                            ProductPrice = 10.49m
+                            ProductPrice = 10.49m,
+                            ShowCase = false
                         },
                         new
                         {
@@ -168,7 +176,8 @@ namespace ShopApp.Migrations
                             ProductDescription = "",
                             ProductImageUrl = "/images/4.jpg",
                             ProductName = "Paper, Please",
-                            ProductPrice = 9.99m
+                            ProductPrice = 9.99m,
+                            ShowCase = false
                         },
                         new
                         {
@@ -177,7 +186,8 @@ namespace ShopApp.Migrations
                             ProductDescription = "",
                             ProductImageUrl = "/images/5.jpg",
                             ProductName = "Don't Starve",
-                            ProductPrice = 3.29m
+                            ProductPrice = 3.29m,
+                            ShowCase = false
                         },
                         new
                         {
@@ -186,7 +196,8 @@ namespace ShopApp.Migrations
                             ProductDescription = "",
                             ProductImageUrl = "/images/6.jpg",
                             ProductName = "The Brothers Karamazov",
-                            ProductPrice = 19.95m
+                            ProductPrice = 19.95m,
+                            ShowCase = false
                         },
                         new
                         {
@@ -195,7 +206,38 @@ namespace ShopApp.Migrations
                             ProductDescription = "",
                             ProductImageUrl = "/images/7.jpg",
                             ProductName = "Lamy Fountain Pen",
-                            ProductPrice = 25.35m
+                            ProductPrice = 25.35m,
+                            ShowCase = false
+                        },
+                        new
+                        {
+                            ProductId = 8,
+                            CategoryId = 1,
+                            ProductDescription = "",
+                            ProductImageUrl = "/images/5.jpg",
+                            ProductName = "Don't Starve",
+                            ProductPrice = 1.67m,
+                            ShowCase = true
+                        },
+                        new
+                        {
+                            ProductId = 9,
+                            CategoryId = 2,
+                            ProductDescription = "",
+                            ProductImageUrl = "/images/6.jpg",
+                            ProductName = "The Brothers Karamazov",
+                            ProductPrice = 17.42m,
+                            ShowCase = true
+                        },
+                        new
+                        {
+                            ProductId = 10,
+                            CategoryId = 3,
+                            ProductDescription = "",
+                            ProductImageUrl = "/images/7.jpg",
+                            ProductName = "Lamy Fountain Pen",
+                            ProductPrice = 34.35m,
+                            ShowCase = true
                         });
                 });
 
