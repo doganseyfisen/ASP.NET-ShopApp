@@ -21,11 +21,20 @@ builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
-builder.Services.AddSingleton<Cart>();
+builder.Services.AddScoped<Cart>();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options => 
+{
+    options.Cookie.Name = "ShopApp.Session";
+    options.IdleTimeout = TimeSpan.FromMinutes(10);
+});
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 var app = builder.Build();
 
 app.UseStaticFiles();
+
+app.UseSession();
 
 app.UseHttpsRedirection();
 
