@@ -18,9 +18,11 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.AddScoped<IProductService, ProductManager>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
+builder.Services.AddScoped<IOrderService, OrderManager>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<Cart>(cart => SessionCart.GetCart(cart));
 builder.Services.AddDistributedMemoryCache();

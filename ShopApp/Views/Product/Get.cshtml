@@ -8,16 +8,31 @@
             </h6>
 
             <img class="img-fluid my-3" width="200" src="@Model?.ProductImageUrl">
+
+            <div class="my-3">
+                <h4>@Model.ProductName</h4>
+                <p>Price: $@Model.ProductPrice USD</p>
+            </div>
+
+            <div class="btn-group center">
+                <a class="btn rounded-pill text-light" style="background-color: rgb(0, 97, 239);" asp-controller="Home"
+                    asp-action="Index">
+                    Home
+                </a>
+
+                <a class="btn rounded-pill text-light" style="background-color: rgb(255, 126, 29); margin-left: 10px;"
+                    asp-controller="Product" asp-action="Index">
+                    Products
+                </a>
+
+                <form id="@Model.ProductId" asp-page="/cart" method="post" style="display:inline;">
+                    <input type="hidden" asp-for="ProductId" />
+                    <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+                    <button type="submit" class="btn btn-success text-light rounded-pill" style="margin-left: 10px;">
+                        Add to cart
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="my-3">
-    <h4>@Model.ProductName</h4>
-    <p>Price: $@Model.ProductPrice USD</p>
-</div>
-
-<div>
-    <a class="btn rounded-pill text-light" style="background-color:	rgb(0, 97, 239);"  asp-controller="Home" asp-action="Index">Home</a>
-    <a class="btn rounded-pill text-light" style="background-color:	rgb(255, 126, 29);"  asp-controller="Product" asp-action="Index">Products</a>
 </div>

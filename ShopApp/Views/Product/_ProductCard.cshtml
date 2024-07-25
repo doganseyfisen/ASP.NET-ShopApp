@@ -14,12 +14,11 @@
 
                 <form id="@Model.ProductId" asp-page="/cart" method="post">
                     <input type="hidden" asp-for="ProductId" />
-                    <input type="hidden" name="returnUrl" value="/Product/Get/@Model.ProductId" />
+                    <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
                     <button type="submit" class="btn btn-success text-light rounded-pill text-light">
                         Add to cart
                     </button>
                 </form>
-
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entities.Models;
 using Services.Contracts;
 
 namespace Services
@@ -12,14 +13,19 @@ namespace Services
 
         private readonly ICategoryService _categoryService;
 
-        public ServiceManager(IProductService productService, ICategoryService categoryService)
+        private readonly IOrderService _orderService;
+
+        public ServiceManager(IProductService productService, ICategoryService categoryService, IOrderService orderService)
         {
             _productService = productService;
             _categoryService = categoryService;
+            _orderService = orderService;
         }
 
         public IProductService ProductService => _productService;
 
         public ICategoryService CategoryService => _categoryService;
+
+        public IOrderService OrderService => _orderService;
     }
 }
