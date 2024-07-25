@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities.Models;
+using Entities.RequestParameters;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
 
 namespace Repositories
@@ -28,6 +30,15 @@ namespace Repositories
         public IQueryable<Product> GetShowcaseProducts(bool trackChanges)
         {
             return FindAll(trackChanges).Where(product => product.ShowCase.Equals(true));
+        }
+
+        public IQueryable<Product> GetAllProductsWithDetails(ProductRequestParameters product)
+        {
+            return product.CategoryId is null
+                ? _context.Products.Include(p => p.Category)
+                : _context
+                    .Products.Include(p => p.Category)
+                    .Where(p => p.CategoryId.Equals(p.CategoryId));
         }
     }
 }

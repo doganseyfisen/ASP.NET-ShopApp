@@ -2,18 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Repositories;
 using Entities.Models;
-using Repositories.Contracts;
+using Entities.RequestParameters;
+using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
 namespace ShopApp.Controllers
 {
     public class ProductController : Controller
     {
-        
         // // Dependency Injection (DI) - start
         // // Let's say I need RepositoryContext, so service handle this for me.
         // private readonly RepositoryContext _context;
@@ -31,7 +28,7 @@ namespace ShopApp.Controllers
             _manager = manager;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(ProductRequestParameters product)
         {
             /* Thanks to DI, I don't need these lines
             var context = new RepositoryContext(
@@ -41,18 +38,20 @@ namespace ShopApp.Controllers
             );
             */
 
-            var products = _manager.ProductService.GetAllProducts(false);
+            var model = _manager.ProductService.GetAllProductsWithDetails(product);
 
-            return View(products);
+            return View(model);
         }
 
-        public IActionResult Get([FromRoute(Name="id")] int id)
+        public IActionResult Get([FromRoute(Name = "id")] int id)
         {
             // Product product = _context.Products.First(p => p.ProductId.Equals(id));
 
             // return View(product);
-            var product = _manager.ProductService.GetSelectedProduct(id, false) ?? throw new Exception("Product not found.");
-            
+            var product =
+                _manager.ProductService.GetSelectedProduct(id, false)
+                ?? throw new Exception("Product not found.");
+
             return View(product);
         }
     }

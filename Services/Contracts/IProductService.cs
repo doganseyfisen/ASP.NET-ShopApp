@@ -4,12 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Entities.Dtos;
 using Entities.Models;
+using Entities.RequestParameters;
 
 namespace Services.Contracts
 {
     public interface IProductService
     {
         IEnumerable<Product> GetAllProducts(bool trackChanges);
+
+        IEnumerable<Product> GetAllProductsWithDetails(ProductRequestParameters product);
 
         Product? GetSelectedProduct(int id, bool trackChanges);
 

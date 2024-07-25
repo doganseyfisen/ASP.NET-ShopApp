@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Entities.Dtos;
 using Entities.Models;
+using Entities.RequestParameters;
 using Repositories.Contracts;
 using Services.Contracts;
 
@@ -22,6 +23,7 @@ namespace Services
             _mapper = mapper;
             _manager = manager;
         }
+
         // end
 
         public void CreateNewProduct(ProductDtoForInsertion productDto)
@@ -46,9 +48,16 @@ namespace Services
             return _manager.Product.GetAllProducts(trackChanges);
         }
 
+        public IEnumerable<Product> GetAllProductsWithDetails(ProductRequestParameters product)
+        {
+            return _manager.Product.GetAllProductsWithDetails(product);
+        }
+
         public Product? GetSelectedProduct(int id, bool trackChanges)
         {
-            var product = _manager.Product.GetSelectedProduct(id, trackChanges) ?? throw new Exception("Product not found.");
+            var product =
+                _manager.Product.GetSelectedProduct(id, trackChanges)
+                ?? throw new Exception("Product not found.");
 
             return product;
         }
