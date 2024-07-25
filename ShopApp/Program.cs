@@ -10,6 +10,7 @@ builder.Services.AddRazorPages();
 builder.Services.ConfigureDbContext(builder.Configuration);
 builder.Services.ConfigureRepositoryRegistration();
 builder.Services.ConfigureServiceRegistration();
+builder.Services.ConfigureRouting();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<Cart>(cart => SessionCart.GetCart(cart));
 builder.Services.ConfigureSession();
@@ -41,5 +42,5 @@ app.UseEndpoints(endpoints =>
 });
 
 app.ConfigureAndCheckMigration();
-
+app.ConfigureLocalization();
 app.Run();

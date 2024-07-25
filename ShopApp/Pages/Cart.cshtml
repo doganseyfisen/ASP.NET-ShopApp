@@ -10,8 +10,8 @@
             <tr>
                 <th>Product</th>
                 <th>Quantity</th>
-                <th>Price ($)</th>
-                <th>Subtotal ($)</th>
+                <th>Price</th>
+                <th>Subtotal</th>
                 <th></th>
             </tr>
         </thead>
@@ -21,8 +21,8 @@
                 <tr>
                     <td>@line.Product.ProductName</td>
                     <td>@line.Quantity</td>
-                    <td>@line.Product.ProductPrice.ToString()</td>
-                    <td>@((@line.Product.ProductPrice * line.Quantity).ToString())</td>
+                    <td>@line.Product.ProductPrice.ToString("c")</td>
+                    <td>@((@line.Product.ProductPrice * line.Quantity).ToString("c"))</td>
                     <td>
                         <form method="post" asp-page-handler="Remove">
                             <input type="hidden" name="id" value="@line.Product.ProductId" />
@@ -35,9 +35,9 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="4" class="text-right"><strong>Total Amount ($):</strong></td>
+                <td colspan="4" class="text-right"><strong>Total Amount:</strong></td>
                 <td class="text-right text-success">
-                    <strong>@Model.Cart?.CalculateTotalCartValue().ToString()</strong>
+                    <strong>@Model.Cart?.CalculateTotalCartValue().ToString("c")</strong>
                 </td>
             </tr>
         </tfoot>

@@ -11,7 +11,7 @@
 
             <div class="my-3">
                 <h4>@Model.ProductName</h4>
-                <p>Price: $@Model.ProductPrice USD</p>
+                <p>Price: @Model.ProductPrice.ToString("c")</p>
             </div>
 
             <div class="btn-group center">

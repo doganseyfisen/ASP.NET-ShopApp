@@ -9,10 +9,8 @@ namespace Repositories
 {
     public class ProductRepository : RepositoryBase<Product>, IProductRepository
     {
-        public ProductRepository(RepositoryContext context) : base(context)
-        {
-
-        }
+        public ProductRepository(RepositoryContext context)
+            : base(context) { }
 
         public void CreateNewProduct(Product product) => Create(product); // RepositoryBase
 
@@ -25,6 +23,11 @@ namespace Repositories
         public Product? GetSelectedProduct(int id, bool trackChanges)
         {
             return FindByCondition(product => product.ProductId.Equals(id), trackChanges);
+        }
+
+        public IQueryable<Product> GetShowcaseProducts(bool trackChanges)
+        {
+            return FindAll(trackChanges).Where(product => product.ShowCase.Equals(true));
         }
     }
 }
