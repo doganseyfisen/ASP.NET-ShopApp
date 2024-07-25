@@ -16,10 +16,10 @@ namespace Entities.Models
         public string? Name { get; set; }
         
         [Required(ErrorMessage = "Line1 field is required.")]
-        public int Line1 { get; set; }
+        public string? Line1 { get; set; }
         
         [Required(ErrorMessage = "Line2 field is required.")]
-        public int Line2 { get; set; }
+        public string? Line2 { get; set; }
 
         [Required(ErrorMessage = "City field is required.")] 
         public string? City { get; set; }
