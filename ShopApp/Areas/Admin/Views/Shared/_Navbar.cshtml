@@ -12,13 +12,20 @@
                     <a class="nav-link text-light" asp-area="Admin" asp-controller="Dashboard"
                         asp-action="Index">Dashboard</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link text-light" asp-area="Admin" asp-controller="Product" asp-action="Index">Products
                         (@await Component.InvokeAsync("ProductSummary"))</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link text-light" asp-area="Admin" asp-controller="Category"
                         asp-action="Index">Categories</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-light" asp-area="Admin" asp-controller="Order"
+                        asp-action="Index">Orders</a>
                 </li>
             </ul>
             <ul class="navbar-nav">

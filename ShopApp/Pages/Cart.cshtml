@@ -35,17 +35,18 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="4" class="text-right"><strong>Total:</strong></td>
+                <td colspan="4" class="text-right"><strong>Total Amount ($):</strong></td>
                 <td class="text-right text-success">
                     <strong>@Model.Cart?.CalculateTotalCartValue().ToString()</strong>
                 </td>
             </tr>
         </tfoot>
     </table>
-    
+
     <div class="text-center my-3">
         <div class="btn-group">
             <a class="btn rounded-pill text-light" style="background-color:	rgb(0, 97, 239);" href="@Model?.ReturnUrl">Continue shopping</a>
+            <a class="btn rounded-pill text-light" style="background-color: rgb(255, 126, 29); margin-left: 10px" asp-action="Checkout" asp-controller="Order">Checkout</a>
         </div>
     </div>
 </div>
