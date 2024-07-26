@@ -183,10 +183,6 @@ dotnet list package
 
 * **Dogan Seyfi Sen** - [LinkedIn](https://linkedin.com/in/doganseyfisen)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Next Steps I Consider To Do 
 
 * User profile page
