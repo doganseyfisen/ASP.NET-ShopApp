@@ -29,9 +29,9 @@
                 <td user-name="@user.UserName" user-role=""></td>
                 <td>
                     <div class="btn-group">
-                        <a class="btn btn btn-success rounded-pill" asp-action="Update" asp-route-id="@user.UserName">
+                        <a class="btn btn-success rounded-pill" asp-action="Update" asp-route-id="@user.UserName">
                             Edit</a>
-                        <a class="btn btn btn-dark rounded-pill" asp-action="ResetPassword" asp-route-id="@user.UserName">
+                        <a class="btn btn-dark rounded-pill" asp-action="ResetPassword" asp-route-id="@user.UserName">
                             Reset Password</a>
                         <form method="post" asp-action="DeleteOneUser">
                             <input type="hidden" name="UserName" value="@user.UserName" />
