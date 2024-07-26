@@ -54,7 +54,7 @@ namespace ShopApp.Infrastructure.Extensions
             {
                 user = new IdentityUser(adminUser)
                 {
-                    Email = "doganseyfisen@gmail",
+                    Email = "doganseyfisen@gmail.com",
                     UserName = adminUser
                 };
 

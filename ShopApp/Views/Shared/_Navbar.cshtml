@@ -32,13 +32,7 @@
                         <span class="ml-2">Cart (@await Component.InvokeAsync("CartSummary"))</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a target="_blank" class="nav-link text-dark" asp-area="Admin" asp-controller="Dashboard"
-                        asp-action="Index">
-                        <i class="fa-solid fa-unlock"></i>
-                        <span class="ml-2">Admin</span>
-                    </a>
-                </li>
+                <partial name="_LoginMenu" />
             </ul>
         </div>
     </div>
