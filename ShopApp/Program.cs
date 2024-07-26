@@ -26,6 +26,7 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
+// Order is important!!
 app.UseAuthentication();
 app.UseAuthorization();
 
