@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
 using Repositories.Contracts;
@@ -25,7 +26,23 @@ namespace ShopApp.Infrastructure.Extensions
                     configuration.GetConnectionString("sqlconnection"),
                     a => a.MigrationsAssembly("ShopApp")
                 );
+                options.EnableSensitiveDataLogging(true); // Log
             });
+        }
+
+        public static void ConfigureIdentity(this IServiceCollection services)
+        {
+            services
+                .AddIdentity<IdentityUser, IdentityRole>(options =>
+                {
+                    options.SignIn.RequireConfirmedAccount = false;
+                    options.User.RequireUniqueEmail = true;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireDigit = false;
+                    options.Password.RequiredLength = 6;
+                })
+                .AddEntityFrameworkStores<RepositoryContext>();
         }
 
         public static void ConfigureSession(this IServiceCollection services)
