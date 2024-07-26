@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entities.Dtos;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ShopApp.Models;
@@ -25,10 +26,7 @@ namespace ShopApp.Controllers
 
         public IActionResult Login([FromQuery(Name = "ReturnUrl")] string ReturnUrl = "/")
         {
-            return View(new LoginModel()
-            {
-                ReturnUrl = ReturnUrl
-            });
+            return View(new LoginModel() { ReturnUrl = ReturnUrl });
         }
 
         [HttpPost]
@@ -69,6 +67,42 @@ namespace ShopApp.Controllers
             await _signInManager.SignOutAsync();
 
             return Redirect(ReturnUrl);
+        }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register([FromForm] RegisterDto model)
+        {
+            var user = new IdentityUser { UserName = model.UserName, Email = model.Email };
+
+            var result = await _userManager.CreateAsync(user, model.Password);
+
+            if (result.Succeeded)
+            {
+                var roleResult = await _userManager.AddToRoleAsync(user, "User");
+
+                if (roleResult.Succeeded)
+                    return RedirectToAction("Login", new { ReturnUrl = "/" });
+            }
+            else
+            {
+                foreach (var err in result.Errors)
+                {
+                    ModelState.AddModelError("", err.Description);
+                }
+            }
+
+            return View();
+        }
+
+        public IActionResult AccessDenied([FromQuery(Name = "ReturnUrl")] string returnUrl)
+        {
+            return View();
         }
     }
 }
