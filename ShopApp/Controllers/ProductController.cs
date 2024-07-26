@@ -6,6 +6,7 @@ using Entities.Models;
 using Entities.RequestParameters;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
+using ShopApp.Models;
 
 namespace ShopApp.Controllers
 {
@@ -39,8 +40,14 @@ namespace ShopApp.Controllers
             */
 
             var model = _manager.ProductService.GetAllProductsWithDetails(product);
+            var pagination = new Pagination()
+            {
+                CurrentPage = product.PageNumber,
+                ItemsPerPage = product.PageSize,
+                TotalItems = _manager.ProductService.GetAllProducts(false).Count()
+            };
 
-            return View(model);
+            return View(new ProductListViewModel() { Products = model, Pagination = pagination });
         }
 
         public IActionResult Get([FromRoute(Name = "id")] int id)

@@ -38,7 +38,8 @@ namespace Repositories
             return _context
                 .Products.FilteredByCategoryId(product.CategoryId)
                 .FilteredBySearchTerm(product.SearchTerm)
-                .FilteredByPrice(product.MinPrice, product.MaxPrice, product.IsValidPrice);
+                .FilteredByPrice(product.MinPrice, product.MaxPrice, product.IsValidPrice)
+                .ToPaginate(product.PageNumber, product.PageSize);
         }
     }
 }

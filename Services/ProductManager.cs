@@ -43,6 +43,14 @@ namespace Services
             }
         }
 
+        public IEnumerable<Product> GetAllLatest(int number, bool trackChanges)
+        {
+            return _manager
+                .Product.FindAll(trackChanges)
+                .OrderByDescending(product => product.ProductId)
+                .Take(number);
+        }
+
         public IEnumerable<Product> GetAllProducts(bool trackChanges)
         {
             return _manager.Product.GetAllProducts(trackChanges);
