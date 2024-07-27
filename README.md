@@ -185,7 +185,8 @@ dotnet list package
 
 ## Next Steps I Consider To Do 
 
-* User profile page
+* User profile page (at the moment they can edit their infos)
 * User comments
 * API
 * Better front-end experience for users
+* Stripe integration
