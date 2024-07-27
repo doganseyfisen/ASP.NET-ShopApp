@@ -175,13 +175,13 @@ sqlite> .exit
 dotnet list package
 ```
 
+### User Names - Passwords
+* `Admin` - `Admin+12345`
+* `test` - `Test12345*`
+
 ## Author
 
 * **Dogan Seyfi Sen** - [LinkedIn](https://linkedin.com/in/doganseyfisen)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Next Steps I Consider To Do 
 
