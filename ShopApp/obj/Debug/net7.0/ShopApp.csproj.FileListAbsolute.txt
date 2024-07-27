@@ -79,3 +79,16 @@ C:\Users\dogan\MVC\Shop\ShopApp\obj\Debug\net7.0\refint\ShopApp.dll
 C:\Users\dogan\MVC\Shop\ShopApp\obj\Debug\net7.0\ShopApp.pdb
 C:\Users\dogan\MVC\Shop\ShopApp\obj\Debug\net7.0\ShopApp.genruntimeconfig.cache
 C:\Users\dogan\MVC\Shop\ShopApp\obj\Debug\net7.0\ref\ShopApp.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\Stripe.net.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\System.Drawing.Common.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\System.Security.Permissions.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\System.Windows.Extensions.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\dogan\MVC\Shop\ShopApp\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll

@@ -15,6 +15,7 @@ builder.Services.ConfigureRouting();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddScoped<Cart>(cart => SessionCart.GetCart(cart));
 builder.Services.ConfigureSession();
+builder.Services.ConfigureStripe(builder.Configuration);
 
 var app = builder.Build();
 

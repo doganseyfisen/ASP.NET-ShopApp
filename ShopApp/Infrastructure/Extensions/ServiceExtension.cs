@@ -9,7 +9,9 @@ using Repositories;
 using Repositories.Contracts;
 using Services;
 using Services.Contracts;
+using ShopApp.Configurations;
 using ShopApp.Models;
+using Stripe;
 
 namespace ShopApp.Infrastructure.Extensions
 {
@@ -81,6 +83,13 @@ namespace ShopApp.Infrastructure.Extensions
                 options.LowercaseUrls = true;
                 options.AppendTrailingSlash = false;
             });
+        }
+
+        // Stripe
+        public static void ConfigureStripe(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.Configure<StripeSettings>(configuration.GetSection("Stripe"));
+            StripeConfiguration.ApiKey = configuration.GetSection("Stripe")["SecretKey"];
         }
     }
 }

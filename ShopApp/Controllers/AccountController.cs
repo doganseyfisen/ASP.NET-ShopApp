@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entities.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ShopApp.Models;
@@ -36,6 +37,7 @@ namespace ShopApp.Controllers
             if (ModelState.IsValid)
             {
                 IdentityUser user = await _userManager.FindByNameAsync(model.Name);
+
                 if (user is not null)
                 {
                     // Signin
@@ -102,6 +104,60 @@ namespace ShopApp.Controllers
 
         public IActionResult AccessDenied([FromQuery(Name = "ReturnUrl")] string returnUrl)
         {
+            return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> EditProfile()
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var model = new EditProfileDto
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditProfile([FromForm] EditProfileDto editProfileDto)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user is not null)
+            {
+                user.UserName = editProfileDto.UserName;
+                user.Email = editProfileDto.Email;
+                user.PhoneNumber = editProfileDto.PhoneNumber;
+
+                var result = await _userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    return Redirect(editProfileDto?.ReturnUrl ?? "/");;
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "User not found.");
+            }
+
             return View();
         }
     }

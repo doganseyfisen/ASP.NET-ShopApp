@@ -12,18 +12,26 @@
         <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between" id="navbarNav">
             <ul class="navbar-nav flex-grow-1">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="ml-2">Home</span>    
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Products
-                        (@await Component.InvokeAsync("ProductSummary"))</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">
+                        <i class="fa-solid fa-book"></i>
+                        <span class="ml-2">Products (@await Component.InvokeAsync("ProductSummary"))</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Category"
-                        asp-action="Index">Categories</a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span class="ml-2">Categories</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-page="/Contact">Contact</a>
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Contact">
+                        <i class="fa-solid fa-address-card"></i>
+                        <span class="ml-2">Contact</span></a>
                 </li>
             </ul>
             <ul class="navbar-nav ">

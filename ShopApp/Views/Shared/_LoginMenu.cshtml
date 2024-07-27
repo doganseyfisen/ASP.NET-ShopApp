@@ -12,8 +12,18 @@
 {
     <li class="nav-item">
         <a class="nav-link text-dark" aria-current="page" asp-area="" asp-controller="Account"
+            asp-route-returnUrl="@Context.Request.PathAndQuery()" asp-action="EditProfile">
+            <i class="fa-solid fa-user-pen"></i>
+            <span class="ml-2">Edit Profile</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-dark" aria-current="page" asp-area="" asp-controller="Account"
             asp-route-returnUrl="@Context.Request.PathAndQuery()" asp-action="Logout">
-            Logout</a>
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span class="ml-2">Logout</span>
+        </a>
     </li>
 }
 else
@@ -21,6 +31,7 @@ else
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Account"
             asp-route-returnUrl="@Context.Request.PathAndQuery()" asp-action="Login">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
             <span class="ml-2">Login</span>
         </a>
     </li>
