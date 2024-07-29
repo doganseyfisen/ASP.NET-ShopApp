@@ -177,7 +177,6 @@ dotnet list package
 
 ### User Names - Passwords
 * `Admin` - `Admin+12345`
-* `test` - `Test12345*`
 
 ## Author
 
@@ -190,3 +189,4 @@ dotnet list package
 * API
 * Better front-end experience for users
 * Stripe integration
+* Docker
