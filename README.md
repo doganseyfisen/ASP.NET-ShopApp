@@ -1,5 +1,7 @@
 # ShopApp
 
+![ShopApp](shopapp.gif)
+
 *ShopApp* is an e-commerce website built with the ASP.NET Core framework. In this project:
 
 * Preferred [VS Code](https://code.visualstudio.com/download) (*C# Dev Kit*, *Auto Rename Tag*, and *CSharpier* extensions are recommended).
